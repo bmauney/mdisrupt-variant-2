@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import Logo from '../components/Logo';
+import DashboardHeader from '../components/DashboardHeader';
 import { store } from '../store';
 
 const SERVICES = [
@@ -15,45 +15,11 @@ const SERVICES = [
 export default function Dashboard() {
   const navigate = useNavigate();
   const user = store.getUser();
-  const initials = `${user?.firstName?.[0] || ''}${user?.lastName?.[0] || ''}`.toUpperCase() || 'U';
   const plan = user?.plan || 'discovery';
-
-  const handleLogout = () => { store.clearAll(); navigate('/'); };
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
-      {/* Header */}
-      <header className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-6 py-3 flex items-center gap-4">
-          <Logo />
-          <nav className="flex items-center gap-6 ml-6 text-sm font-medium text-gray-600">
-            <button className="text-brand-700 border-b-2 border-brand-600 pb-0.5">Dashboard</button>
-            <button className="hover:text-gray-900">My Meetings</button>
-            <button className="hover:text-gray-900">Projects</button>
-          </nav>
-          <div className="ml-auto flex items-center gap-4">
-            {/* Plan badge — Discovery Plan (no "No Credits" jargon) */}
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
-                {plan === 'discovery' ? 'Discovery Plan' : 'All Access'}
-              </span>
-              {plan === 'discovery' && (
-                <button
-                  onClick={() => navigate('/plan')}
-                  className="text-xs font-semibold px-3 py-1 rounded-full bg-brand-600 text-white hover:bg-brand-700 transition-colors"
-                >
-                  Upgrade
-                </button>
-              )}
-            </div>
-            {/* Avatar */}
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-blue-600 flex items-center justify-center text-white text-xs font-bold">
-              {initials}
-            </div>
-            <button onClick={handleLogout} className="text-xs text-gray-500 hover:text-gray-700">Logout</button>
-          </div>
-        </div>
-      </header>
+      <DashboardHeader activeTab="dashboard" />
 
       {/* Main */}
       <main className="flex-1 max-w-7xl mx-auto px-6 py-10 w-full">
