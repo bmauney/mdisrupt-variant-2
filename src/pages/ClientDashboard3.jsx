@@ -159,6 +159,7 @@ function VariantFooter() {
     <div className="border-t border-gray-200 bg-white mt-auto">
       <div className="max-w-7xl mx-auto px-6 py-3 flex items-center gap-6">
         <span className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Other variants:</span>
+        <button onClick={() => navigate('/dashboard')} className="text-brand-600 hover:underline text-xs">Base Dashboard</button>
         <button onClick={() => navigate('/client-dashboard-1')} className="text-brand-600 hover:underline text-xs">Variant 1 — Wizard</button>
         <button onClick={() => navigate('/client-dashboard-2')} className="text-brand-600 hover:underline text-xs">Variant 2 — Wheel</button>
       </div>
