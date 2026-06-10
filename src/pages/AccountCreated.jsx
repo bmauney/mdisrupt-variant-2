@@ -34,7 +34,7 @@ export default function AccountCreated() {
             <h1 className="text-2xl font-bold text-gray-900 mb-2">Your account is ready, {firstName}!</h1>
             <p className="text-sm text-gray-500 mb-8">Here's how to get the most out of MDisrupt right away:</p>
 
-            <ul className="text-left space-y-3 mb-8">
+            <ul className="inline-block text-left space-y-3 mb-8">
               {[
                 ['Browse the expert network', 'Explore 500+ vetted health industry professionals.'],
                 ['Submit your first expert request', 'Tell us what you need — we\'ll match you in 48h.'],

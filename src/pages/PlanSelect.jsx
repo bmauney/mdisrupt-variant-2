@@ -92,11 +92,11 @@ export default function PlanSelect() {
           <h1 className="text-2xl font-bold text-gray-900 mb-1">Choose your plan</h1>
           <p className="text-sm text-gray-500 mb-2">You can upgrade or downgrade at any time.</p>
 
-          {/* Important disclaimer — prominent */}
-          <div className="flex items-start gap-2 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 mb-6 text-sm text-amber-800">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="flex-shrink-0 mt-0.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          {/* Disclaimer */}
+          <div className="flex items-start gap-2 bg-blue-50 border border-blue-100 rounded-lg px-4 py-3 mb-6 text-sm text-blue-800">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="flex-shrink-0 mt-0.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
             <span>
-              <strong>Note:</strong> Your subscription fee covers platform access only.
+              Your subscription fee covers platform access only.
               Consulting fees and expert retainer rates are separate and agreed upon directly with each expert.
             </span>
           </div>
@@ -114,9 +114,9 @@ export default function PlanSelect() {
                 }`}
                 style={selected === plan.key ? { background: plan.accentLight } : {}}
               >
-                <div className="flex items-center justify-between mb-3">
+                <div className="flex items-start justify-between mb-3">
                   <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${plan.badgeColor}`}>{plan.badge}</span>
-                  <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
+                  <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${
                     selected === plan.key ? 'border-brand-600 bg-brand-600' : 'border-gray-300'
                   }`}>
                     {selected === plan.key && <div className="w-2 h-2 rounded-full bg-white" />}
@@ -124,11 +124,11 @@ export default function PlanSelect() {
                 </div>
 
                 <h3 className="text-lg font-bold text-gray-900">{plan.name}</h3>
-                <div className="flex items-baseline gap-1 mb-2">
+                <div className="flex items-baseline gap-1 mb-1">
                   <span className="text-3xl font-bold" style={{ color: plan.accent }}>{plan.price}</span>
                   <span className="text-sm text-gray-500">{plan.period}</span>
                 </div>
-                <p className="text-sm text-gray-500 mb-4">{plan.description}</p>
+                <p className="text-sm text-gray-500 mb-4 min-h-[40px]">{plan.description}</p>
 
                 <ul className="space-y-2">
                   {plan.features.map((f, i) => (

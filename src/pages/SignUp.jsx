@@ -120,11 +120,11 @@ export default function SignUp() {
             <div className="flex justify-center mb-6 lg:hidden"><Logo /></div>
 
             <h1 className="text-2xl font-bold text-gray-900 mb-1">Create your account</h1>
-            <p className="text-sm text-gray-500 mb-6">Free to start — no credit card required.</p>
+            <p className="text-sm text-gray-500 mb-4">Free to start — no credit card required.</p>
 
             {/* Account type toggle */}
-            <div className="flex gap-2 mb-6 p-1 bg-gray-100 rounded-lg">
-              {[{ val: 'client', label: "I'm a Client" }, { val: 'expert', label: "I'm an Expert" }].map(({ val, label }) => (
+            <div className="flex gap-2 mb-5 p-1 bg-gray-100 rounded-lg">
+              {[{ val: 'client', label: 'I need expertise' }, { val: 'expert', label: 'I am an expert' }].map(({ val, label }) => (
                 <button
                   key={val}
                   type="button"
@@ -140,7 +140,7 @@ export default function SignUp() {
               ))}
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+            <form onSubmit={handleSubmit} className="space-y-3" noValidate>
               <div className="flex gap-3">
                 <div className="flex-1">
                   <input className="input-field" placeholder="First Name" value={form.firstName} onChange={set('firstName')} />
@@ -155,7 +155,7 @@ export default function SignUp() {
               <div>
                 <input
                   className={`input-field ${errors.email ? 'border-red-400 focus:ring-red-400' : ''}`}
-                  placeholder="Work Email"
+                  placeholder="Email"
                   type="email"
                   value={form.email}
                   onChange={set('email')}
@@ -204,9 +204,8 @@ export default function SignUp() {
               </div>
 
               {/* Inline T&C */}
-              <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-                <p className="text-xs font-semibold text-gray-700 mb-2">Before you continue:</p>
-                <ul className="text-xs text-gray-600 space-y-1 mb-3">
+              <div className="bg-gray-50 rounded-lg p-3 border border-gray-200">
+                <ul className="text-xs text-gray-600 space-y-1 mb-2.5">
                   <li>• MDisrupt facilitates expert connections and charges a platform fee on transactions</li>
                   <li>• Your data is kept confidential and not shared outside the platform</li>
                   <li>• Disputes are resolved by binding arbitration under Texas law</li>
@@ -228,7 +227,7 @@ export default function SignUp() {
                 {errors.terms && <p className="text-red-500 text-xs mt-1">{errors.terms}</p>}
               </div>
 
-              <button type="submit" className="btn-gradient mt-2">Create Account</button>
+              <button type="submit" className="btn-gradient mt-1">Explore for free</button>
             </form>
 
             <p className="text-center text-sm text-gray-500 mt-5">

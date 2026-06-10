@@ -25,7 +25,6 @@ export default function CompanyInfo() {
   };
 
   const handleGenerate = () => {
-    if (!form.website.trim()) { setErrors((p) => ({ ...p, website: 'Enter a website URL to generate from' })); return; }
     setGenerating(true);
     setTimeout(() => {
       setForm((p) => ({
@@ -106,7 +105,7 @@ export default function CompanyInfo() {
                 <input
                   className={`input-field flex-1 ${errors.website ? 'border-red-400' : ''}`}
                   placeholder="https://yourcompany.com"
-                  type="url"
+                  type="text"
                   value={form.website}
                   onChange={set('website')}
                 />

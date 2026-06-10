@@ -176,10 +176,10 @@ export default function EmailVerify() {
             </div>
 
             <h1 className="text-2xl font-bold text-gray-900 mb-2">Verify your account</h1>
-            <p className="text-sm text-gray-500 mb-1">
+            <p className="text-sm text-gray-900 mb-1">
               Please verify your account by entering the code
             </p>
-            <p className="text-sm text-gray-700 font-medium mb-7">
+            <p className="text-sm text-gray-900 font-medium mb-7">
               that was just emailed to <span className="text-brand-600">{email}</span>
             </p>
 
@@ -217,11 +217,14 @@ export default function EmailVerify() {
             </button>
 
             <div className="flex items-center justify-center gap-4 mt-5 text-sm">
-              <button className="text-brand-600 hover:underline">Resend code</button>
-              <span className="text-gray-300">|</span>
-              <button onClick={() => navigate('/')} className="text-gray-500 hover:text-gray-700">
-                Wrong email?
+              <button
+                className="text-brand-600 hover:underline"
+                onClick={() => setDigits(['', '', '', '', '', ''])}
+              >
+                Resend code
               </button>
+              <span className="text-gray-300">|</span>
+              <span className="text-gray-500 cursor-default">Wrong email?</span>
             </div>
           </div>
         </div>
