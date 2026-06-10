@@ -14,13 +14,13 @@ const PLANS = [
     badgeColor: 'bg-green-100 text-green-700',
     description: 'Explore the MDisrupt network. Great for early evaluation.',
     features: [
-      { text: 'Browse anonymized expert profiles', note: 'Names & contact info revealed when you engage' },
-      { text: 'Submit expert hire requests', note: null },
-      { text: 'Access to all 7 service categories', note: null },
-      { text: 'Email support', note: null },
+      { text: 'Browse anonymized expert profiles' },
+      { text: 'Submit expert hire requests' },
+      { text: 'Access to all 7 service categories' },
+      { text: 'Email support' },
     ],
     limitations: [
-      'Expert profiles are anonymized until engagement',
+      'Expert profiles anonymized until engagement',
       'No dedicated account manager',
     ],
     cta: 'Start Free',
@@ -107,37 +107,37 @@ export default function PlanSelect() {
                 key={plan.key}
                 type="button"
                 onClick={() => setSelected(plan.key)}
-                className={`text-left rounded-2xl border-2 p-6 transition-all ${
+                className={`text-left rounded-2xl border-2 p-6 transition-all flex flex-col ${
                   selected === plan.key
                     ? 'border-brand-500 shadow-lg'
                     : 'border-gray-200 hover:border-gray-300 bg-white'
                 }`}
                 style={selected === plan.key ? { background: plan.accentLight } : {}}
               >
-                <div className="flex items-start justify-between mb-3">
-                  <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${plan.badgeColor}`}>{plan.badge}</span>
-                  <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${
-                    selected === plan.key ? 'border-brand-600 bg-brand-600' : 'border-gray-300'
-                  }`}>
-                    {selected === plan.key && <div className="w-2 h-2 rounded-full bg-white" />}
+                {/* Fixed-height header so feature lists align across both cards */}
+                <div className="min-h-[9.5rem]">
+                  <div className="flex items-start justify-between mb-3">
+                    <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${plan.badgeColor}`}>{plan.badge}</span>
+                    <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${
+                      selected === plan.key ? 'border-brand-600 bg-brand-600' : 'border-gray-300'
+                    }`}>
+                      {selected === plan.key && <div className="w-2 h-2 rounded-full bg-white" />}
+                    </div>
                   </div>
-                </div>
 
-                <h3 className="text-lg font-bold text-gray-900">{plan.name}</h3>
-                <div className="flex items-baseline gap-1 mb-1">
-                  <span className="text-3xl font-bold" style={{ color: plan.accent }}>{plan.price}</span>
-                  <span className="text-sm text-gray-500">{plan.period}</span>
+                  <h3 className="text-lg font-bold text-gray-900">{plan.name}</h3>
+                  <div className="flex items-baseline gap-1 mb-1">
+                    <span className="text-3xl font-bold" style={{ color: plan.accent }}>{plan.price}</span>
+                    <span className="text-sm text-gray-500">{plan.period}</span>
+                  </div>
+                  <p className="text-sm text-gray-500 mb-0">{plan.description}</p>
                 </div>
-                <p className="text-sm text-gray-500 mb-4 min-h-[40px]">{plan.description}</p>
 
                 <ul className="space-y-2">
                   {plan.features.map((f, i) => (
                     <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2.5" className="flex-shrink-0 mt-0.5"><polyline points="20 6 9 17 4 12"/></svg>
-                      <span>
-                        {f.text}
-                        {f.note && <span className="block text-xs text-gray-400 mt-0.5">{f.note}</span>}
-                      </span>
+                      <span>{f.text}</span>
                     </li>
                   ))}
                   {plan.limitations.map((l, i) => (
